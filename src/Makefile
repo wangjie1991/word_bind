@@ -8,7 +8,7 @@ $(TARGET) : $(OBJ)
 	$(GCC) -g -o $@ $^
 
 %.o	: %.cpp	
-	$(GCC) -O0 $(CPPFLAGS) -c $< -o $@
+	$(GCC) -O3 $(CPPFLAGS) -c $< -o $@
 
 clean:	
 	rm -rf *.o
