@@ -1,18 +1,19 @@
 工程目录：
-/src  源代码目录
-/bin  运行工具和大语言模型
+bin  运行工具和大语言模型
+doc  文档目录
+src  源代码目录
 
 
 使用说明：
 
 方式一：
-生成凝固度词典（./BindDict.sh lm_file dict_file）
+生成凝固度词典（./WordBind.sh lm_file dict_file）
 -参数1：lm_file指处理过的ngram一元模型文件路径
 -参数2：dict_file指凝固度词典文件路径
 注意：一元模型文件的编码格式只支持GBK。
 
 方式二：
-生成凝固度词典（./BindDict lm_file dict_file）
+生成凝固度词典（./WordBind lm_file dict_file）
 -参数1：lm_file指处理过的ngram一元模型文件路径
 -参数2：dict_file指凝固度词典文件路径
 注意：一元模型文件的编码格式只支持GBK。
