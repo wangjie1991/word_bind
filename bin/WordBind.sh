@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ $# -ne 2 ]
 then
@@ -18,4 +19,5 @@ awk -F '\t' '{
 
 ./WordBind unigram.dic $2
 rm unigram.dic
+
 
