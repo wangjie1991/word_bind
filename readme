@@ -22,10 +22,11 @@ src  源代码目录
       并且将单词放第一列，概率放第二列，中间用TAB隔开。
 
 方式三：
-新词典转化凝固度词典（python NewBindDict.py new_lexicon general_bind_dict new_bind_dict）
+新词典转化凝固度词典（./NewBindDict.sh new_lexicon general_bind_dict new_bind_dict）
 -参数1：新标音词典
 -参数2：作为新标音词典基础的词典
 -参数3：新凝固度词典
 注意：编码格式只支持GBK。
+      程序执行较慢，1分钟大约处理1万个单词。
 
 
