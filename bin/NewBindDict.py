@@ -11,7 +11,7 @@ def NewBindDict(fnl, fgb, fnb):
         if not gb_line: break
         gb_line = gb_line.decode('gbk')
         gb_word = gb_line[:gb_line.find('\t')]
-        if not pDic.has_key(gb_word):
+        if gb_word not in pDic:
             pDic[gb_word] = gb_line
 
     while 1:
@@ -19,7 +19,7 @@ def NewBindDict(fnl, fgb, fnb):
         if not nl_line: break
         nl_line = nl_line.decode('gbk')
         nl_word = nl_line[:nl_line.find('\t')]
-        if pDic.has_key(nl_word):
+        if nl_word in pDic:
             fnb.write(pDic[nl_word].encode('gbk'))
         else:
             nb_line = '%s\t10.000000\n' % nl_word
