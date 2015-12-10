@@ -1,35 +1,29 @@
+#!/usr/bin/python
 #-*- coding: utf-8 -*-
 
 import os
 import sys
 
-def WriteNewBindDict(fnl, fgb, fnb):
+def NewBindDict(fnl, fgb, fnb):
+    pDic = {}
+    while 1:
+        gb_line = fgb.readline()
+        if not gb_line: break
+        gb_line = gb_line.decode('gbk')
+        gb_word = gb_line[:gb_line.find('\t')]
+        if not pDic.has_key(gb_word):
+            pDic[gb_word] = gb_line
+
     while 1:
         nl_line = fnl.readline()
-        if not nl_line:
-            break
-
+        if not nl_line: break
         nl_line = nl_line.decode('gbk')
         nl_word = nl_line[:nl_line.find('\t')]
-
-        nb_line = ''
-        fgb.seek(0)
-
-        while 1:
-            gb_line = fgb.readline()
-            if not gb_line:
-                break
-
-            gb_line = gb_line.decode('gbk')
-            gb_word = gb_line[:gb_line.find('\t')]
-
-            if nl_word == gb_word:
-                nb_line = gb_line
-                break
-
-        if nb_line == '':
+        if pDic.has_key(nl_word):
+            fnb.write(pDic[nl_word].encode('gbk'))
+        else:
             nb_line = '%s\t10.000000\n' % nl_word
-        fnb.write(nb_line.encode('gbk'))
+            fnb.write(nb_line.encode('gbk'))
 
 
 if __name__ == '__main__':
@@ -51,7 +45,7 @@ if __name__ == '__main__':
     fgb = open(sys.argv[2], 'r')
     fnb = open(sys.argv[3], 'w')
 
-    WriteNewBindDict(fnl, fgb, fnb);
+    NewBindDict(fnl, fgb, fnb);
 
     fnl.close()
     fgb.close()
